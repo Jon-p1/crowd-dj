@@ -4,13 +4,57 @@
 	<title>Home Page</title>
 	<style type="text/css">
 		button {
-			padding: 10px;
+			padding: 8px;
+		}
+
+		#create-party {
+			background-color: red;
+			padding: 12px;
+		}
+
+		#join-party {
+			background-color: powderblue;
+			padding: 12px;
 		}
 	</style>
 </head>
 <body>
 	<h2>Welcome to Crowd Dj!</h2>
-	<button>Create Party</button>
-	<button>Join Party</button>
+	<button id="create" onClick="userClick(this.id)">Create Party</button>
+	<button id="join" onClick="userClick(this.id)">Join Party</button>
+	<div id="create-party" hidden>
+		<form id="create-form" onsubmit="createParty()">
+			<input type="text" name="party-name" placeholder="Party Name" id="party-name">
+			<input type="text" name="dj-name" placeholder="DJ Name" id="dj-name">
+			<input type="submit">
+		</form>
+	</div>
+	<div id="join-party" hidden>
+		<form id="join-form" onsubmit="joinParty()">
+			<input type="text" name="party-id" placeholder="Party ID" id="party-id">
+			<input type="submit">
+		</form>
+	</div>
 </body>
+<script type="text/javascript">
+	function userClick(button_id) {
+		if(button_id === 'create') {
+			document.getElementById('join-party').setAttribute("hidden", 'true');
+			document.getElementById('create-party').removeAttribute('hidden');
+		}
+		
+		if(button_id === 'join') {
+			document.getElementById('create-party').setAttribute("hidden", 'true');
+			document.getElementById('join-party').removeAttribute('hidden');
+		}		
+	}
+
+	function createParty() {
+
+	}
+
+	document.getElementById("create-form").addEventListener("submit", function(e) {
+		e.preventDefault();
+	})
+</script>
 </html>
