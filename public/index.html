@@ -23,14 +23,14 @@
 	<button id="create" onClick="userClick(this.id)">Create Party</button>
 	<button id="join" onClick="userClick(this.id)">Join Party</button>
 	<div id="create-party" hidden>
-		<form id="create-form" onsubmit="createParty()">
+		<form action="/create_party" method="POST" id="create-form">
 			<input type="text" name="party-name" placeholder="Party Name" id="party-name">
 			<input type="text" name="dj-name" placeholder="DJ Name" id="dj-name">
 			<input type="submit">
 		</form>
 	</div>
 	<div id="join-party" hidden>
-		<form id="join-form" onsubmit="joinParty()">
+		<form action="/join_party" method="POST" id="join-form" onsubmit="joinParty()">
 			<input type="text" name="party-id" placeholder="Party ID" id="party-id">
 			<input type="submit">
 		</form>
@@ -49,12 +49,16 @@
 		}		
 	}
 
-	function createParty() {
+	// function createParty() {
 
-	}
+	// }
 
 	document.getElementById("create-form").addEventListener("submit", function(e) {
-		e.preventDefault();
+		e.submit();
 	})
+
+	document.getElementById("join-form").addEventListener("submit", function(e) {
+		e.submit();
+	})	
 </script>
-</html>
+</html> 
