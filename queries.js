@@ -3,7 +3,7 @@ const pool = new Pool({
 	user: 'user1',
 	host: 'localhost',
 	database: 'crowd-dj',
-	password: 'dert55',
+	password: process.env.POSTGRES_PASSWORD,
 	port: 5432,
 })
 
