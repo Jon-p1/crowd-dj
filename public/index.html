@@ -23,9 +23,10 @@
 	<button id="create" onClick="userClick(this.id)">Create Party</button>
 	<button id="join" onClick="userClick(this.id)">Join Party</button>
 	<div id="create-party" hidden>
-		<form action="/create_party" method="POST" id="create-form">
-			<input type="text" name="party-name" placeholder="Party Name" id="party-name">
-			<input type="text" name="dj-name" placeholder="DJ Name" id="dj-name">
+		<form action="/events" method="POST" id="create-form">
+			<input type="text" name="event_name" placeholder="Party Name" id="party-name">
+			<input type="text" name="dj_name" placeholder="DJ Name" id="dj-name">
+			<input type="number" name="size" placeholder="Size" id="size">
 			<input type="submit">
 		</form>
 	</div>
