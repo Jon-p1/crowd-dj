@@ -31,7 +31,7 @@
 		</form>
 	</div>
 	<div id="join-party" hidden>
-		<form action="/join_party" method="POST" id="join-form" onsubmit="joinParty()">
+		<form action="" id="join-form" onsubmit="event.preventDefault(); joinParty();">
 			<input type="text" name="party-id" placeholder="Party ID" id="party-id">
 			<input type="submit">
 		</form>
@@ -50,16 +50,22 @@
 		}		
 	}
 
-	// function createParty() {
-
-	// }
+	function joinParty() {
+		var party_id = document.getElementById("party-id").value;
+		console.log(party_id);
+		window.location.replace("http://localhost:3000/events/passcode/"+ party_id)
+	}
 
 	document.getElementById("create-form").addEventListener("submit", function(e) {
 		e.submit();
 	})
 
-	document.getElementById("join-form").addEventListener("submit", function(e) {
-		e.submit();
-	})	
+
+	// document.getElementById("join-form").addEventListener("submit", function(e) {
+	// 	e.preventDefault();
+	// 	var party_id = document.getElementById("party-id").value();
+	// 	console.log(party_id);
+	// 	window.location.replace("localhost:3000/events/passcode/"+ party_id)
+	// })	
 </script>
 </html> 

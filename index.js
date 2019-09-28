@@ -1,3 +1,4 @@
+require('dotenv').config()
 const db = require('./queries.js');
 const express = require('express');
 const app = express();
