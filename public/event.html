@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event</title>
+</head>
+<body>
+	<h3 id='header'>Event!</h3>
+	<h4 id='dj_name'>DJ!</h4>
+<script type="text/javascript">
+	const urlParams = new URLSearchParams(window.location.search);
+	const party_id = urlParams.get('party_id');
+
+	let xhr = new XMLHttpRequest();
+	xhr.open('GET', '/events/passcode/'+party_id);
+	xhr.responseType = 'json';
+	xhr.send();
+
+	xhr.onload = function() {
+		if(xhr.status != 200) {
+			alert(`Error ${xhr.status}: ${xhr.statusText}`);
+		} else {
+			let data = xhr.response[0];
+			console.log(data)
+			document.getElementById('header').innerHTML =data.event_name;
+			document.getElementById('dj_name').innerHTML = data.dj_name;
+		}
+	}
+</script>
+</body>
+</html>
